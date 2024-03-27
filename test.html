@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Interface</title>
+</head>
+<body>
+    <div>
+        <h2>Chat with Bot</h2>
+        <input type="text" id="userInput" placeholder="Type your question...">
+        <button onclick="sendQuestion()">Send</button>
+        <div id="chatArea"></div>
+    </div>
+    <div>
+        <h2>Upload a File</h2>
+        <input type="file" id="fileInput">
+        <button onclick="processFile()">Upload</button>
+    </div>
+
+    <script>
+        function sendQuestion() {
+            var input = document.getElementById("userInput");
+            var chatArea = document.getElementById("chatArea");
+            var userText = "<p>You: " + input.value + "</p>";
+
+            // This is where you'd typically send the input to your backend
+            // For demonstration, we'll just append it to the chat area
+            chatArea.innerHTML += userText;
+
+            // Mock response from the bot
+            var botResponse = "<p>Bot: That's a great question! Unfortunately, I can't answer it right now.</p>";
+            chatArea.innerHTML += botResponse;
+
+            input.value = ""; // Clear input after sending
+        }
+
+        function processFile() {
+            var fileInput = document.getElementById("fileInput");
+            var fileName = fileInput.value.split("\\").pop();
+
+            alert("File '" + fileName + "' uploaded. Processing not implemented.");
+
+            // Here you'd typically process the file or send it to your backend
+        }
+    </script>
+</body>
+</html>
